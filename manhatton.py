@@ -60,6 +60,12 @@ def manhatton_set(string: str, k: int, X: np.array):
             result.update([rs])
     return result
 
+def words():
+    with open("word.txt", "r") as fp:
+        X = fp.readlines()
+        X = [X.strip() for X in X]
+    return X
+
 "---------------------------------------------------"
 
 X = np.array([
@@ -68,11 +74,12 @@ X = np.array([
         ["<", 'Y', 'X', 'C', 'V', 'B', 'N', 'M', ";", ".", "-", "+"]
     ])
 
+X = words()
 ms = manhatton_set("far", 1, X)
-print(ms)
+#print(ms)
 
 
-s1 = "dominik"
-s2 = "gominik"
-d = manhatton_distance(s1, s2, X)
-print(d)
+# s1 = "dominik"
+# s2 = "gominik"
+# d = manhatton_distance(s1, s2, X)
+# print(d)
