@@ -1,0 +1,4 @@
+<program>    ::= begin <stmt_list> end
+<stmt_list>  ::= <stmt> | <stmt> ; <stmt_list>
+<stmt>       ::= <var> = <expression>
+<expression> ::= <var> + <var> | <var> - <var> | <var>
