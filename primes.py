@@ -1,5 +1,6 @@
 import numpy as np
 import functools
+from itertools import combinations
 """
 K numbers bigger then 50 which divide the X. 
 Decompose the number into primes. 
@@ -73,6 +74,4 @@ def prime_decompose(x):
             return np.array(primes), row
     return [], []
 
-x = 4332
-xs, ys = prime_decompose(x)
-print(xs, ys, mul(xs**ys))
+
