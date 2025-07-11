@@ -135,12 +135,8 @@ def snake_search(letter: str, grid: np.array, boggle: Boggle):
             if len(neigbour_indices) == 0:
                 continue
             trails_next = [trails[i] + [(x,y)] for (x,y) in neigbour_indices]
-            import pdb; pdb.set_trace()
             sentences = extract_words(trails_next, boggle)
-            
             print(sentences)
-            import pdb; pdb.set_trace()
-
         if trails_next == trails:
             break
         trails = trails_next 
@@ -148,8 +144,6 @@ def snake_search(letter: str, grid: np.array, boggle: Boggle):
 
 
 N = 4
-#boggle = Boggle(4)
-
 X = [
     ["H", "Q", "D", "D"],
     ["S", "E", "S", "S"],
