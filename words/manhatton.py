@@ -43,20 +43,6 @@ def neighbour_index(x: int, y: int, k: int, x_lenght: int, y_length: int):
 def change_string_elem(string, index, c):
     return string[:index] + c + string[index+1:]
 
-def manhatton_set(string: str, k: int):
-    x_length = len(X[0]) 
-    y_length = len(X)
-    result = set()
-    string = string.upper()
-    for i, s in enumerate(string):
-        x,y = index_of(s, X)
-        index_list = neighbour_index(x, y, k, x_length, y_length)
-        for x,y in index_list:
-            l = X[y, x]
-            rs = change_string_elem(string, i, l)
-            result.update([rs])
-    return result
-
 def words():
     """
         All the words which appear on the Linux system. 
@@ -168,7 +154,32 @@ def preffix_similar_set(preffix: str, words: list) -> list:
     else: 
         return recommendation
 
-ws = words()
-start = "anti"
-xs = preffix_similar_set("amti", ws)
-print(xs)
+def manhatton_set(string: str, k: int):
+    """
+        Returns K-manhatton set for given word. K-set is the set of all words from the given dictionary
+        which differ by exactly k characters.
+        Returns: set()
+    """
+    X = get_keyboard()
+    x_length = len(X[0]) 
+    y_length = len(X)
+    result = set()
+    string = string.upper()
+    for i, s in enumerate(string):
+        x,y = index_of(s, X)
+        index_list = neighbour_index(x, y, k, x_length, y_length)
+        for x,y in index_list:
+            l = X[y, x]
+            rs = change_string_elem(string, i, l)
+            result.update([rs])
+    return result
+
+
+
+if __name__ == "__main__":
+    ws = words()
+    start = "anti"
+    X = get_keyboard()
+
+    xs = manhatton_set("anti", 1)
+    print(xs)
